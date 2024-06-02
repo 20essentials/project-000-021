@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow: hidden;
+  background-image: linear-gradient(35deg, #0f08, #fff8);
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+i {
+  width: 2.3rem;
+  height: 2.3rem;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px #fffa;
+  user-select: none;
+  pointer-events: none;
+  animation: moverBubble 3s ease both;
+}
+
+i::before {
+  width: 100%;
+  height: 100%;
+  content: '';
+  position: absolute;
+  background-image: radial-gradient(#fffa, transparent);
+  border-radius: 50%;
+  transform: translate(-10%, -10%) scale(.25);
+}
+
+video {
+  all: initial;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  z-index: 3;
+}
+
+aside {
+  z-index: 10;
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  background-color: transparent;
+}
+
+.myAside1 {
+  left: 0;
+}
+
+.myAside2 {
+  transform: scaleX(-1);
+  right: 0;
+}
+
+@keyframes moverBubble {
+  0% {
+    /* transform: translate(-1.5rem, -4rem); */
+    transform: translate(-2.5rem, -4rem);
+  }
+  100% {
+    transform: translate(var(--x), var(--y));
+  }
+}
+
+@media (width <= 1200px) {
+  video {
+    aspect-ratio: 9 / 16;
+  }
+}
